@@ -24,9 +24,11 @@
             <span class="logo-icon">🔍</span>
             <span class="logo-text">TruthLens</span>
         </div>
-        <div class="model-badge" title="Powered by {{ model_name }} · {{ accuracy }}% accuracy">
-            <span class="badge-dot"></span>
-            AI Model · {{ accuracy }}% Accurate
+        <div class="header-right">
+            <div class="model-badge" title="Powered by {{ model_name }} · {{ accuracy }}% accuracy">
+                <span class="badge-dot"></span>
+                AI Model · {{ accuracy }}% Accurate
+            </div>
         </div>
     </header>
 
@@ -130,16 +132,28 @@
     </main>
 
     <footer class="footer">
-        <p>TruthLens · Powered by <strong>{{ model_name }}</strong> + TF-IDF (bigrams) · Dataset: ~45k articles</p>
-        <p style="margin-top: 8px;">Made by <strong>Shivansh Thakur</strong></p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/thakur-shivansh/" target="_blank" rel="noopener" class="social-link"
-                title="LinkedIn">💼 LinkedIn</a>
-            <a href="https://github.com/not-shivansh" target="_blank" rel="noopener" class="social-link"
-                title="GitHub">🐙 GitHub</a>
-        </div>
-    </footer>
 
+        <p>
+            TruthLens · Powered by <strong>{{ model_name }}</strong> + TF-IDF (bigrams) · Dataset: ~45k articles
+        </p>
+
+        <p style="margin-top:8px;">
+            Made by <strong>Shivansh Thakur</strong>
+        </p>
+
+        <div class="social-links">
+
+            <a href="https://www.linkedin.com/in/thakur-shivansh/" target="_blank" rel="noopener" class="social-link">
+                💼 LinkedIn
+            </a>
+
+            <a href="https://github.com/not-shivansh" target="_blank" rel="noopener" class="social-link">
+                🐙 GitHub
+            </a>
+
+        </div>
+
+    </footer>
     <div class="toast" id="errorToast">
         <span class="toast-icon">⚠</span>
         <span id="toastMsg">Something went wrong.</span>
