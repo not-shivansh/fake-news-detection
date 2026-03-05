@@ -4,7 +4,7 @@ import string
 import json
 import joblib
 import numpy as np
-
+from flask import Flask, render_template, request, jsonify
 
 import nltk
 for resource in ['stopwords', 'wordnet', 'omw-1.4']:
