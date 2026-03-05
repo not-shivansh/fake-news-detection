@@ -4,11 +4,7 @@ import string
 import json
 import joblib
 import numpy as np
-import nltk
-import os
 
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
-from flask import Flask, request, jsonify, render_template
 
 import nltk
 for resource in ['stopwords', 'wordnet', 'omw-1.4']:
