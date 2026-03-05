@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TruthLens – Fake News Detector</title>
+    <meta name="description"
+        content="AI-powered fake news detection. Paste any news article to instantly analyze its credibility with machine learning." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">🔍</span>
+            <span class="logo-text">TruthLens</span>
+        </div>
+        <div class="model-badge" title="Powered by {{ model_name }} · {{ accuracy }}% accuracy">
+            <span class="badge-dot"></span>
+            AI Model · {{ accuracy }}% Accurate
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero-tag">AI-Powered Analysis</div>
+            <h1 class="hero-title">
+                Is it <span class="gradient-text">Real</span> or <span class="gradient-text-red">Fake</span>?
+            </h1>
+            <p class="hero-subtitle">
+                Paste any news article, headline, or text below and our machine learning model will analyze its
+                credibility in seconds.
+            </p>
+        </section>
+
+        <section class="card analyzer-card">
+            <div class="input-header">
+                <label for="newsInput" class="input-label">News Article or Headline</label>
+                <span class="char-counter" id="charCounter">0 words</span>
+            </div>
+
+            <textarea id="newsInput" class="news-textarea"
+                placeholder="Paste a news article, headline, or any text you'd like to fact-check here…"
+                spellcheck="false" rows="8"></textarea>
+
+            <div class="input-footer">
+                <button class="btn-clear" id="btnClear" onclick="clearInput()">✕ Clear</button>
+                <button class="btn-analyze" id="btnAnalyze" onclick="analyze()">
+                    <span class="btn-text">Analyze Article</span>
+                    <span class="btn-icon">→</span>
+                    <div class="btn-spinner" id="btnSpinner"></div>
+                </button>
+            </div>
+        </section>
+
+        <section class="result-section" id="resultSection" style="display:none;">
+            <div class="card result-card" id="resultCard">
+                <div class="verdict-container">
+                    <div class="verdict-icon" id="verdictIcon"></div>
+                    <div class="verdict-text" id="verdictText"></div>
+                    <div class="verdict-subtitle" id="verdictSubtitle"></div>
+                </div>
+
+                <div class="confidence-block">
+                    <div class="confidence-header">
+                        <span class="confidence-label">Model Confidence</span>
+                        <span class="confidence-value" id="confidenceValue">0%</span>
+                    </div>
+                    <div class="confidence-bar-bg">
+                        <div class="confidence-bar-fill" id="confidenceBarFill"></div>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-value" id="statWords">—</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="statChars">—</div>
+                        <div class="stat-label">Characters</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="statModel">—</div>
+                        <div class="stat-label">Model</div>
+                    </div>
+                </div>
+
+                <p class="disclaimer">
+                    ⚠️ This tool is trained on a specific dataset and may not generalize to all types of content. Use it
+                    as a guide, not a definitive verdict.
+                </p>
+            </div>
+
+            <button class="btn-secondary" onclick="focusInput()">Analyze Another Article</button>
+        </section>
+
+        <section class="how-it-works">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <div class="step-title">Paste Text</div>
+                    <div class="step-desc">Enter any news article, headline, or excerpt you want to verify.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <div class="step-title">AI Analysis</div>
+                    <div class="step-desc">Our model preprocesses the text using NLP techniques and TF-IDF
+                        vectorization.</div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <div class="step-title">Get Verdict</div>
+                    <div class="step-desc">Receive an instant REAL or FAKE classification with a confidence score.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>TruthLens · Powered by <strong>{{ model_name }}</strong> + TF-IDF (bigrams) · Dataset: ~45k articles</p>
+        <p style="margin-top: 8px;">Made by <strong>Shivansh Thakur</strong></p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/thakur-shivansh/" target="_blank" rel="noopener" class="social-link"
+                title="LinkedIn">💼 LinkedIn</a>
+            <a href="https://github.com/not-shivansh" target="_blank" rel="noopener" class="social-link"
+                title="GitHub">🐙 GitHub</a>
+        </div>
+    </footer>
+
+    <div class="toast" id="errorToast">
+        <span class="toast-icon">⚠</span>
+        <span id="toastMsg">Something went wrong.</span>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

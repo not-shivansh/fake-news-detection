@@ -1,0 +1,7 @@
+{
+  "model_name": "Passive Aggressive",
+  "accuracy": 0.9977728285077951,
+  "features": "title + text (combined)",
+  "vectorizer": "TfidfVectorizer(ngram_range=(1,2), sublinear_tf=True, max_features=150000)",
+  "preprocessing": "stopwords + lemmatization"
+}
