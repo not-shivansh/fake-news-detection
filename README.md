@@ -90,6 +90,12 @@ python train_model.py
   "char_count": 742
 }
 ```
+## Screenshots
+<img width="2820" height="1354" alt="image" src="https://github.com/user-attachments/assets/7ec284a0-fb91-4a77-b727-bc816d9919a5" />
+<img width="2814" height="1326" alt="image" src="https://github.com/user-attachments/assets/fea9f5a2-b4fd-4247-ab10-519f39ca06a6" />
+<img width="2816" height="1182" alt="image" src="https://github.com/user-attachments/assets/5304d6ab-c87a-454e-a8df-83a613adcbee" />
+<img width="2820" height="1316" alt="image" src="https://github.com/user-attachments/assets/5c3545a8-848b-45a6-bbd0-125623e8b887" />
+
 
 ## Dataset
 
